@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admission – Zenjade Automation</title>
+<style>
+  :root{
+    --primary:#046bd2;
+    --primary-dark:#045cb4;
+    --text:#1e293b;
+    --text-light:#334155;
+    --bg:#F0F5FA;
+    --border:#ADB6BE;
+    --error:#d63637;
+    --radius:8px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    padding:30px 15px;
+  }
+  .form-wrapper{
+    max-width:900px;
+    margin:0 auto;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.06);
+    overflow:hidden;
+  }
+  .form-header{
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    color:#fff;
+    padding:32px 40px;
+    text-align:center;
+  }
+  .form-header h1{
+    margin:0 0 6px 0;
+    font-size:28px;
+    font-weight:800;
+  }
+  .form-header p{
+    margin:0;
+    opacity:0.9;
+    font-size:14px;
+  }
+  form{padding:36px 40px;}
+  .section-title{
+    font-size:16px;
+    font-weight:700;
+    color:var(--primary-dark);
+    margin:28px 0 14px 0;
+    padding-bottom:6px;
+    border-bottom:2px solid var(--bg);
+  }
+  .section-title:first-of-type{margin-top:0;}
+  .row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-bottom:16px;
+  }
+  .field{
+    flex:1 1 220px;
+    display:flex;
+    flex-direction:column;
+  }
+  label{
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--text);
+  }
+  .req{color:var(--error);}
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="date"],
+  select{
+    padding:11px 12px;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    font-size:15px;
+    font-family:inherit;
+    background:#fff;
+    color:var(--text);
+    width:100%;
+  }
+  input:focus, select:focus{
+    outline:none;
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(4,107,210,0.12);
+  }
+  fieldset{
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:10px 14px;
+    margin:0;
+  }
+  fieldset legend{
+    font-size:14px;
+    font-weight:600;
+    padding:0 6px;
+  }
+  .radio-group{display:flex;gap:20px;flex-wrap:wrap;padding:4px 0;}
+  .radio-group label{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-weight:400;
+    margin:0;
+  }
+  .photo-upload{
+    border:2px dashed var(--primary);
+    border-radius:var(--radius);
+    padding:20px;
+    text-align:center;
+    background:var(--bg);
+  }
+  .photo-upload input[type="file"]{
+    margin-top:8px;
+  }
+  .photo-hint{
+    font-size:12px;
+    color:var(--text-light);
+    margin-top:6px;
+  }
+  #photoPreview{
+    margin-top:12px;
+    max-width:120px;
+    max-height:120px;
+    border-radius:6px;
+    display:none;
+    border:1px solid var(--border);
+  }
+  .submit-container{
+    margin-top:30px;
+    text-align:center;
+  }
+  button[type="submit"]{
+    background:var(--primary);
+    color:#fff;
+    border:none;
+    padding:14px 44px;
+    border-radius:var(--radius);
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:background 0.2s;
+  }
+  button[type="submit"]:hover{background:var(--primary-dark);}
+  button[type="submit"]:disabled{background:#9db8d6;cursor:not-allowed;}
+  .note{
+    font-size:12px;
+    color:var(--text-light);
+    text-align:center;
+    margin-top:10px;
+  }
+  @media(max-width:600px){
+    form{padding:24px 20px;}
+    .form-header{padding:26px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="form-wrapper">
+  <div class="form-header">
+    <h1>Admission Form</h1>
+    <p>Zenjade Automation Technology Private Limited</p>
+  </div>
+
+  <form id="admissionForm" action="https://formsubmit.co/hrzenjade@gmail.com" method="POST" enctype="multipart/form-data">
+
+    <!-- FormSubmit configuration: sends to hrzenjade@gmail.com and CCs zenjadeautomation@gmail.com -->
+    <input type="hidden" name="_cc" value="zenjadeautomation@gmail.com">
+    <input type="hidden" name="_subject" value="New Admission Form Submission - Zenjade Automation">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
+    <div class="section-title">Personal Details</div>
+    <div class="row">
+      <div class="field" style="flex:1 1 100%;">
+        <label>Name <span class="req">*</span></label>
+        <input type="text" name="Name" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field" style="flex:1 1 100%;">
+        <label>Address <span class="req">*</span></label>
+        <input type="text" name="Address" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Landmark</label>
+        <input type="text" name="Landmark">
+      </div>
+      <div class="field">
+        <label>Gender <span class="req">*</span></label>
+        <fieldset>
+          <div class="radio-group">
+            <label><input type="radio" name="Gender" value="Male" required> Male</label>
+            <label><input type="radio" name="Gender" value="Female" required> Female</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="field">
+        <label>Date of Birth <span class="req">*</span></label>
+        <input type="date" name="Date of Birth" required>
+      </div>
+      <div class="field">
+        <label>Age <span class="req">*</span></label>
+        <select name="Age" required>
+          <option value="">Select</option>
+          <script>for(let a=15;a<=75;a++)document.write('<option value="'+a+'">'+a+'</option>');</script>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Mobile Number 1 <span class="req">*</span></label>
+        <input type="number" name="Mobile Number 1" required maxlength="10" minlength="10">
+      </div>
+      <div class="field">
+        <label>Mobile Number 2</label>
+        <input type="number" name="Mobile Number 2" maxlength="10" minlength="10">
+      </div>
+      <div class="field">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" name="Email" required>
+      </div>
+    </div>
+
+    <div class="section-title">Education Details</div>
+    <div class="row">
+      <div class="field">
+        <label>School Name <span class="req">*</span></label>
+        <input type="text" name="School Name" required>
+      </div>
+      <div class="field">
+        <label>College Name <span class="req">*</span></label>
+        <input type="text" name="College Name" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Department <span class="req">*</span></label>
+        <input type="text" name="Department" required>
+      </div>
+      <div class="field">
+        <label>Qualification <span class="req">*</span></label>
+        <input type="text" name="Qualification" required>
+      </div>
+      <div class="field">
+        <label>Year of Passed Out <span class="req">*</span></label>
+        <select name="Year of Passed Out" required>
+          <option value="">Select</option>
+          <script>for(let y=2030;y>=1990;y--)document.write('<option value="'+y+'">'+y+'</option>');</script>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Fresher <span class="req">*</span></label>
+        <fieldset>
+          <div class="radio-group">
+            <label><input type="radio" name="Fresher" value="Yes" required onclick="toggleExperience(false)"> Yes</label>
+            <label><input type="radio" name="Fresher" value="No" required onclick="toggleExperience(true)"> No</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="field" id="experienceField" style="display:none;">
+        <label>Experience (Years)</label>
+        <select name="Experience">
+          <option value="">Select</option>
+          <script>for(let e=0;e<=50;e++)document.write('<option value="'+e+'">'+e+'</option>');</script>
+        </select>
+      </div>
+    </div>
+
+    <div class="section-title">Family Details</div>
+    <div class="row">
+      <div class="field">
+        <label>Father Name <span class="req">*</span></label>
+        <input type="text" name="Father Name" required>
+      </div>
+      <div class="field">
+        <label>Father Mobile Number <span class="req">*</span></label>
+        <input type="number" name="Father Mobile Number" required maxlength="10" minlength="10">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Mother Name <span class="req">*</span></label>
+        <input type="text" name="Mother Name" required>
+      </div>
+      <div class="field">
+        <label>Mother Mobile Number <span class="req">*</span></label>
+        <input type="number" name="Mother Mobile Number" required maxlength="10" minlength="10">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Guardian Name</label>
+        <input type="text" name="Guardian Name">
+      </div>
+      <div class="field">
+        <label>Guardian Mobile Number</label>
+        <input type="number" name="Guardian Mobile Number" maxlength="10" minlength="10">
+      </div>
+    </div>
+
+    <div class="section-title">Interview & Photo</div>
+    <div class="row">
+      <div class="field">
+        <label>Interview Date <span class="req">*</span></label>
+        <input type="date" name="Interview Date" required>
+      </div>
+      <div class="field">
+        <label>Place <span class="req">*</span></label>
+        <input type="text" name="Place" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field" style="flex:1 1 100%;">
+        <label>Passport Size Photo <span class="req">*</span></label>
+        <div class="photo-upload">
+          <input type="file" name="Passport Photo" accept="image/*" required onchange="previewPhoto(event)">
+          <div class="photo-hint">Upload a recent passport size photo (JPG/PNG, max 2MB)</div>
+          <img id="photoPreview" alt="Photo preview">
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-container">
+      <button type="submit">Submit Application</button>
+      <p class="note">On submission, your application (including photo) will be sent to hrzenjade@gmail.com and zenjadeautomation@gmail.com</p>
+    </div>
+
+  </form>
+</div>
+
+<script>
+  function toggleExperience(show){
+    document.getElementById('experienceField').style.display = show ? 'flex' : 'none';
+  }
+  function previewPhoto(event){
+    const file = event.target.files[0];
+    const preview = document.getElementById('photoPreview');
+    if(file){
+      const reader = new FileReader();
+      reader.onload = function(e){
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    } else {
+      preview.style.display = 'none';
+    }
+  }
+</script>
+
+</body>
+</html>
